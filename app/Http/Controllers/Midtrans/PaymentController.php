@@ -19,10 +19,10 @@ class PaymentController extends Controller
         $params = [
             'transaction_details' => [
                 'order_id' => 'order-' . rand(),
-                'gross_amount' => 100000,
+                'gross_amount' => 1000,
             ],
             'customer_details' => [
-                'first_name' => 'John',
+                'first_name' => 'Wann',
                 'last_name' => 'Doe',
                 'email' => 'john.doe@example.com',
                 'phone' => '08123456789',
@@ -31,7 +31,7 @@ class PaymentController extends Controller
 
         try {
             $snapToken = Snap::getSnapToken($params);
-            return response()->json(['token' => $snapToken]);
+            return view('payment', ['snapToken' => $snapToken]);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }

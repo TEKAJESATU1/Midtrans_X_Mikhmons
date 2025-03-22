@@ -7,4 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/midtrans/payment', [PaymentController::class, 'createTransaction']);
+Route::get('/payment', [PaymentController::class, 'createTransaction']);
 Route::post('/midtrans/callback', [PaymentController::class, 'handleCallback']);
