@@ -51,4 +51,40 @@ class PaymentController extends Controller
 
         return response()->json(['status' => 'error'], 400);
     }
+
+    public function generateMidtransToken(Request $request) {
+        // Konfigurasi Midtrans
+        Config::$serverKey = config('midtrans.server_key');
+        Config::$isProduction = false;
+        Config::$isSanitized = true;
+        Config::$is3ds = true;
+        
+        // Data transaksi
+        $transaction = [
+            'transaction_details' => [
+                'order_id' => uniqid(), // ID unik untuk transaksi
+                'gross_amount' => $request->price, // Harga dari frontend
+            ],
+            'customer_details' => [
+                'first_name' => 'Pelanggan',
+                'email' => 'pelanggan@example.com',
+                'phone' => '08123456789',
+            ],
+            'item_details' => [
+                [
+                    'id' => 'voucher-' . $request->profile,
+                    'price' => $request->price,
+                    'quantity' => 1,
+                    'name' => 'Voucher Hotspot ' . $request->profile,
+                ]
+            ]
+        ];
+        
+        try {
+            $snapToken = Snap::getSnapToken($transaction);
+            return response()->json(['snap_token' => $snapToken]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 }

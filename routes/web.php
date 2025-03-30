@@ -13,6 +13,7 @@ Route::get('/beli', function () {
 });
 Route::get('/midtrans/payment', [PaymentController::class, 'createTransaction']);
 Route::get('/payment', [PaymentController::class, 'createTransaction']);
+Route::post('/generate-midtrans-token', [PaymentController::class, 'generateMidtransToken']);
 Route::post('/midtrans/callback', [PaymentController::class, 'handleCallback']);
 Route::post('/voucher', [VoucherController::class, 'createVoucher']);
 // routes/web.php
