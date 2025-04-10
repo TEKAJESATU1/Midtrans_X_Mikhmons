@@ -55,7 +55,7 @@ class PaymentController extends Controller
     public function generateMidtransToken(Request $request) {
         // Konfigurasi Midtrans
         Config::$serverKey = config('midtrans.server_key');
-        Config::$isProduction = false;
+        Config::$isProduction = true;
         Config::$isSanitized = true;
         Config::$is3ds = true;
         

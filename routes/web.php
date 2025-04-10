@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Midtrans\PaymentController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\VoucherController;
 use RouterOS\Client;
 
@@ -16,7 +17,6 @@ Route::get('/payment', [PaymentController::class, 'createTransaction']);
 Route::post('/generate-midtrans-token', [PaymentController::class, 'generateMidtransToken']);
 Route::post('/midtrans/callback', [PaymentController::class, 'handleCallback']);
 Route::post('/voucher', [VoucherController::class, 'createVoucher']);
-// routes/web.php
 Route::get('/test-mikrotik', function() {
     try {
         $client = new Client([
@@ -32,3 +32,6 @@ Route::get('/test-mikrotik', function() {
         return response()->json(['error' => $e->getMessage()], 500);
     }
 });
+Route::post('api/transactions', [TransactionController::class, 'create']);
+Route::post('api/transactions/{orderId}/success', [TransactionController::class, 'handleSuccess']);
+Route::get('api/transactions/{orderId}/status', [TransactionController::class, 'checkStatus']);
