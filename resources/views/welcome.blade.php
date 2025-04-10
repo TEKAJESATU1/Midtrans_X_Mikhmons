@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <title>Voucher</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://app.midtrans.com/snap/snap.js" data-client-key="{{ config('services.midtrans.client_key') }}"></script>
@@ -35,8 +36,39 @@
     <!-- <h1 class="text-5xl font-extrabold text-center text-gray-900 mb-10">Pilihan Voucher Internet</h1> -->
 
     <!-- Gambar Banner -->
-    <div class="mt-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-lg overflow-hidden shadow-lg h-auto sm:h-auto xs:h-[12px]">
-        <img src="Banner_Voucher.png" class="w-full transform transition-all duration-500 hover:scale-105" alt="Gambar Banner">
+    <div class="mx-8 mt-10">
+        <div class="w-full h-full rounded-md banner xl:p-5 xl:px-12 md:px-6 px-2 xl:py-12 md:py-8 py-4">
+            <div class="flex justify-between item-center">
+                <div><img class="xl:w-20 md:w-12 w-8" src="logo_tkj.png" alt=""></div>
+                <div><img class="xl:w-40 md:w-24 w-14" src="Logo_TKJ1-BG_copy.png" alt=""></div>
+            </div>
+            <div class="text-center xl:mt-[-5vw] md:mt-[-4vw] mt-[-8vw]">
+                <h1 class="font-bold xl:text-5xl md:text-3xl text-xl text-white">PAKET VOUCHER TJKT 1</h1>
+            </div>
+            <div class="flex xl:mt-16 md:mt-10 mt-5 justify-evenly">
+                <div class="bg-white xl:px-8 md:px-3 p-2 xl:h-60 md:h-38 h-26 xl:rounded-3xl rounded-2xl xl:w-60 md:w-40 w-26">
+                    <div class="h-full xl:my-8 md:my-5 my-2">
+                        <p class="font-bold text-center text-[#057dcd] xl:text-4xl md:text-2xl text-md">10 Mbps</p>
+                        <div class="bg-[#057dcd] w-full xl:h-[2px] h-[1px] xl:my-9 md:my-5 my-2 rounded-full"></div> 
+                        <p class="font-semibold text-center text-[#057dcd] md:font-bold xl:text-2xl md:text-xl text-sm">Rp10/1Jam</p>
+                    </div>
+                </div>
+                <div class="bg-white xl:px-8 md:px-3 p-2 xl:h-60 md:h-38 h-26 xl:rounded-3xl rounded-2xl xl:w-60 md:w-40 w-26">
+                    <div class="h-full xl:my-8 md:my-5 my-2">
+                        <p class="font-bold text-center text-[#057dcd] xl:text-4xl md:text-2xl text-md">10 Mbps</p>
+                        <div class="bg-[#057dcd] w-full xl:h-[2px] h-[1px] xl:my-9 md:my-5 my-2 rounded-full"></div> 
+                        <p class="font-semibold text-center text-[#057dcd] md:font-bold xl:text-2xl md:text-xl text-sm">Rp20/2Jam</p>
+                    </div>
+                </div>
+                <div class="bg-white xl:px-8 md:px-3 p-2 xl:h-60 md:h-38 h-26 xl:rounded-3xl rounded-2xl xl:w-60 md:w-40 w-26">
+                    <div class="h-full xl:my-8 md:my-5 my-2">
+                        <p class="font-bold text-center text-[#057dcd] xl:text-4xl md:text-2xl text-md">10 Mbps</p>
+                        <div class="bg-[#057dcd] w-full xl:h-[2px] h-[1px] xl:my-9 md:my-5 my-2 rounded-full"></div> 
+                        <p class="font-semibold text-center text-[#057dcd] md:font-bold xl:text-2xl md:text-xl text-sm">Rp240/1Hari</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
